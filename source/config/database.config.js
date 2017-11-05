@@ -35,7 +35,9 @@ function seedAdmin() {
 
 module.exports = (config) => {
     "use strict";
-    mongoose.connect(config.connectionString);
+    mongoose.connect(config.connectionString,{
+        useMongoClient:true
+    });
 
     let database = mongoose.connection;
     database.once('open', (err) => {
